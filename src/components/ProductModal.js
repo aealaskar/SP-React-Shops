@@ -3,7 +3,7 @@ import { useState } from "react";
 import shopStore from "../stores/shopStore";
 // import productStore from "../stores/productStore";
 
-function ProductModal() {
+function ProductModal({ shop }) {
   const [show, setShow] = useState(false);
   const [product, setProduct] = useState({
     name: "",
@@ -25,7 +25,7 @@ function ProductModal() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    shopStore.createProduct(product);
+    shopStore.createProduct(product, shop);
     handleClose();
   };
 

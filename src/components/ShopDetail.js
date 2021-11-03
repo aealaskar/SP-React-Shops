@@ -11,7 +11,7 @@ const ShopDetail = () => {
     <div className="detail">
       <img className="detail-img" src={shop.image} alt={shop.name} />
       <h2 className="title">{shop.name}</h2>
-      <ProductList products={shop.products} />
+      <ProductList products={shop.products} shop={shop} />
     </div>
   );
 };

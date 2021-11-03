@@ -33,17 +33,18 @@ class ShopStore {
     }
   };
 
-  createProduct = async (newProduct, shopId) => {
+  createProduct = async (product, shop) => {
     try {
+      console.log(product);
       const formData = new FormData();
-      for (const key in newProduct) {
-        formData.append(key, newProduct[key]);
+      for (const key in product) {
+        formData.append(key, product[key]);
       }
       const response = await instance.post(
-        `/shops/${shopId}/products`,
+        `/shops/${shop._id}/products`,
         formData
       );
-      this.shops.push(response.data);
+      shop.products.push(response.data);
     } catch (error) {
       console.log(
         "🚀 ~ file: shopStore.js ~ line 16 ~ ShopStore ~ createShop= ~ error",
